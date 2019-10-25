@@ -2,6 +2,7 @@
 #cityscape
 
 import turtle
+import math
                                                 #These variables make it easier to goto each corner
 leftSide = turtle.window_width() / 2 * -1
 topSide = turtle.window_height() / 2
@@ -76,7 +77,7 @@ def mountain(x,h):
     mountain.right(90)
     mountain.forward(h)
     mountain.right(135)
-    mountain.forward(math.sqrt(2hh))
+    mountain.forward(math.sqrt(2*h*h))
     mountain.end_fill()
     mountain.fillcolor("white")
     mountain.right(135)
@@ -98,5 +99,5 @@ def mountain(x,h):
 sky()
 ground()
 building(-120,150)
-    
+mountain(50,100)
 
