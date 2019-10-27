@@ -3,16 +3,20 @@
 
 import turtle
 import math
+import random
                                                 #These variables make it easier to goto each corner
 leftSide = turtle.window_width() / 2 * -1
 topSide = turtle.window_height() / 2
 rightSide = turtle.window_width() / 2
-bottomSide = turtle.window_height() / 2 * -1 
+bottomSide = turtle.window_height() / 2 * -1
+
+colors = ['blue','yellow', 'red']
 
 turtle.screensize(500,400)
 
 def sky():          #draws the sky by Spencer
     sky = turtle.Turtle()
+    sky.hideturtle()
     sky.up()
     sky.color("SkyBlue")
     sky.fillcolor("SkyBlue")
@@ -31,6 +35,7 @@ def sky():          #draws the sky by Spencer
 
 def ground():           #draws the ground by Spencer
     ground = turtle.Turtle()
+    ground.hideturtle()
     ground.up()
     ground.goto(leftSide,bottomSide)
     ground.color("Green")
@@ -49,9 +54,10 @@ def ground():           #draws the ground by Spencer
 
 def building(x,height):         #draws a building at x parameter with a height given in another parameter by Spencer
     building = turtle.Turtle()
+    building.hideturtle()
     building.up()
     building.goto(x, -97)
-    building.color("Gray")
+    building.color("Black")
     building.fillcolor("Gray")
     building.down()
     building.begin_fill()
@@ -64,6 +70,7 @@ def building(x,height):         #draws a building at x parameter with a height g
 
 def mountain(x,h):
     mountain = turtle.Turtle()
+    mountain.hideturtle()
     mountain.penup()
     mountain.fillcolor("gray")
     mountain.right(90)
@@ -95,9 +102,87 @@ def mountain(x,h):
     mountain.right(90)
     mountain.forward(h/10)
     mountain.end_fill()
+
+def car(x, color):              #by Kat
+    bob = turtle.Turtle()
+    bob.up()
+    bob.goto(x,bottomSide + 25)
+    bob.setheading(180)
+    bob.color('black')
+    bob.begin_fill()
+    bob.circle(10)
+    bob.end_fill()
+    bob.forward(40)
+    bob.color('black')
+    bob.begin_fill()
+    bob.circle(10)
+    bob.end_fill()
+    bob.color(color)
+    bob.begin_fill()
+    bob.forward(15)
+    bob.right(90)
+    bob.forward(15)
+    bob.right(90)
+    bob.forward(20)
+    bob.left(90)
+    bob.forward(30)
+    bob.right(90)
+    bob.forward(50)
+    bob.right(90)
+    bob.forward(50)
+    bob.right(90)
+    bob.forward(10)
+    bob.end_fill()
+    
+    bob.right(90)
+    bob.forward(50)
+    bob.left(90)
+    bob.forward(22)
+    bob.left(90)
+    bob.forward(6)
+    bob.color('grey')
+    bob.begin_fill()
+    bob.forward(30)
+    bob.right(90)
+    bob.forward(10)
+    bob.right(90)
+    bob.forward(30)
+    bob.right(90)
+    bob.forward(10)
+    bob.end_fill()
+    bob.hideturtle()
+    bob.color('yellow')
+
+    bob.right(90)
+    bob.forward(40)
+    bob.right(90)
+    bob.forward(35)
+    bob.right(90)
+    bob.forward(8)
+    bob.color('lightblue')
+    bob.begin_fill()
+    bob.circle(4)
+    bob.end_fill()
+    bob.hideturtle()
     
 sky()
 ground()
-building(-120,150)
-mountain(50,100)
+mountain(25,250)
+building(-160,75)
+building(-290,120)
+building(15,170)
+building(80,85)
+building(340,120)
+building(260,75)
+building(-340,100)
+building(-20,150)
+building(40,100)
+building(-80,100)
+building(80,100)
+i = 1
+for y in range(1, 7):
+    car(i * 125 - 370, colors[random.randint(0,2)])
+    i += 1
+
+
 
